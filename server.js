@@ -9,10 +9,17 @@ const db = mysql.createConnection(
       // TODO: Add MySQL password
       password: 'Bingo$16141',
       database: 'tech_db'
-    },
-    console.log(`Connected to the tech_db database.`),
-    employeeTracker();
-  )
+     })
+
+
+db.connect(err => {
+  if (err) throw err;
+
+  console.log(`Connected to the tech_db database.`);
+  employeeTracker();
+})
+
+
 
   var employeeTracker = function () {
     inquirer.prompt([{
